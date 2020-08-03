@@ -2,7 +2,7 @@
 falcon-provider-redis
 =====================
 
-|coverage| |code-style| |pre-commit|
+|build| |coverage| |code-style| |pre-commit|
 
 A falcon hook and middleware provider for Redis.
 
@@ -122,7 +122,10 @@ Testing
 
     > pytest --cov=falcon_provider_redis --cov-report=term-missing tests/
 
-.. |coverage| image:: https://codecov.io/gh/bcsummers/falcon-provider-redis/branch/master/graph/badge.svg?token=prpmecioDm
+.. |build| image:: https://github.com/bcsummers/falcon-provider-redis/workflows/build/badge.svg
+    :target: https://github.com/bcsummers/falcon-provider-redis/actions
+
+.. |coverage| image:: https://codecov.io/gh/bcsummers/falcon-provider-redis/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/bcsummers/falcon-provider-redis
 
 .. |code-style| image:: https://img.shields.io/badge/code%20style-black-000000.svg
