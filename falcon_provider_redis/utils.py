@@ -47,6 +47,13 @@ class RedisClient(metaclass=Singleton):
         **kwargs
     ):
         """Initialize class properties"""
+        # standard library
+        import os  # pylint: disable=import-outside-toplevel
+
+        print('provider-redis host', host)
+        print('provider-redis REDIS_HOST', os.getenv('REDIS_HOST'))
+        print('provider-redis port', port)
+
         self._client = None
         pool = redis.ConnectionPool
         if blocking_pool:
