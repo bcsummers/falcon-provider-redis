@@ -12,7 +12,7 @@ def test_middleware_post(client_middleware: object) -> None:
         client_middleware (fixture): The test client.
     """
     params = {'key': 'middleware', 'value': 'middleware-worked'}
-    response = client_middleware.simulate_post('/middleware', params=params)
+    response: Result = client_middleware.simulate_post('/middleware', params=params)
     # TODO: assert format for dates
     assert response.text == 'True'
     assert response.status_code == 200

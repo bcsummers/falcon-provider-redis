@@ -19,7 +19,6 @@ REDIS_PORT = int(os.getenv('REDIS_PORT', '6379'))
 class RedisHookResource:
     """Redis hook testing resource."""
 
-    # pylint: disable=unused-argument
     @falcon.before(redis_client, host=REDIS_HOST, port=REDIS_PORT)
     def on_get(
         self, req: falcon.Request, resp: falcon.Response,
