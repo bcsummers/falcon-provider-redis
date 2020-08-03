@@ -42,10 +42,9 @@ class RedisMiddleware:
             redis_client = RedisClient(host, port, db, **kwargs).client
         self.redis_client = redis_client
 
-    # pylint: disable=unused-argument
     def process_resource(
         self, req: falcon.Request, resp: falcon.Response, resource: object, params: dict
-    ):
+    ):  # pylint: disable=unused-argument
         """Process resource method.
 
         .. code-block:: python

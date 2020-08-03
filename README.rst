@@ -2,9 +2,9 @@
 falcon-provider-redis
 =====================
 
-|coverage| |code-style| |pre-commit|
+|build| |coverage| |code-style| |pre-commit|
 
-A falcon hook and middleware provider for REDIS.
+A falcon hook and middleware provider for Redis.
 
 ------------
 Installation
@@ -20,7 +20,7 @@ Install the extension via pip.
 Overview
 --------
 
-This package provides a hook and middleware component for the falcon framework via the RedisClient class in utils.py. This class is a Singleton that uses a connection pool for the REDIS client.  The RedisClient class can also be accessed directly outside of the hook or middleware if required.  There is also a stand-alone ``redis_client`` method that provides a single client connection to REDIS.
+This package provides a hook and middleware component for the falcon framework via the RedisClient class in utils.py. This class is a Singleton that uses a connection pool for the Redis client.  The RedisClient class can also be accessed directly outside of the hook or middleware if required.  There is also a stand-alone ``redis_client`` method that provides a single client connection to Redis.
 
 --------
 Requires
@@ -33,7 +33,7 @@ Requires
 Hook
 ----
 
-The redis_client hook can be applied at the class level or the method level. If applied at the class level each responder method will have access to ``self.redis_client`` (an instance of redis.client.Redis) or if applied at the method level that method will have access to ``self.redis_client``. For more information on falcon hooks see https://falcon.readthedocs.io/en/stable/api/hooks.html and for more information on REDIS client methods see https://redis.io/commands.
+The redis_client hook can be applied at the class level or the method level. If applied at the class level each responder method will have access to ``self.redis_client`` (an instance of redis.client.Redis) or if applied at the method level that method will have access to ``self.redis_client``. For more information on falcon hooks see https://falcon.readthedocs.io/en/stable/api/hooks.html and for more information on Redis client methods see https://redis.io/commands.
 
 .. code:: python
 
@@ -68,7 +68,7 @@ The redis_client hook can be applied at the class level or the method level. If 
 Middleware
 ----------
 
-When using RedisMiddleWare all responder methods will have access to ``self.redis_client`` (an instance of redis.client.Redis). For more information on falcon middleware see https://falcon.readthedocs.io/en/stable/api/middleware.html and for more information on REDIS client methods see https://redis.io/commands.
+When using RedisMiddleWare all responder methods will have access to ``self.redis_client`` (an instance of redis.client.Redis). For more information on falcon middleware see https://falcon.readthedocs.io/en/stable/api/middleware.html and for more information on Redis client methods see https://redis.io/commands.
 
 .. code:: python
 
@@ -122,7 +122,10 @@ Testing
 
     > pytest --cov=falcon_provider_redis --cov-report=term-missing tests/
 
-.. |coverage| image:: https://codecov.io/gh/bcsummers/falcon-provider-redis/branch/master/graph/badge.svg?token=prpmecioDm
+.. |build| image:: https://github.com/bcsummers/falcon-provider-redis/workflows/build/badge.svg
+    :target: https://github.com/bcsummers/falcon-provider-redis/actions
+
+.. |coverage| image:: https://codecov.io/gh/bcsummers/falcon-provider-redis/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/bcsummers/falcon-provider-redis
 
 .. |code-style| image:: https://img.shields.io/badge/code%20style-black-000000.svg
