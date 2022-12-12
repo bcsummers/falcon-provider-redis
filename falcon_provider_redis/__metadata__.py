@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Package version and other metadata"""
 __author__ = 'Bracey Summers (bcsummers@gmail.com)'
 __author_email__ = 'bcsummers@gmail.com'

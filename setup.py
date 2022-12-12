@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Setup for falcon-provider-redis package."""
 # standard library
 import os
@@ -10,15 +9,15 @@ metadata = {}
 metadata_file = os.path.join(
     os.path.abspath(os.path.dirname(__file__)), 'falcon_provider_redis', '__metadata__.py'
 )
-with open(metadata_file, mode='r', encoding='utf-8',) as f:
-    # load metadat into a dict
+with open(metadata_file, encoding='utf-8') as f:
+    # load metadata into a dict
     exec(f.read(), metadata)  # nosec; pylint: disable=exec-used
 
 if not metadata:
     raise RuntimeError(f'Could not load metadata file ({metadata_file}).')
 
 # read README file to be used as long description
-with open('README.rst', 'r') as f:
+with open('README.rst', encoding='utf-8') as f:
     readme = f.read()
 
 dev_packages = [

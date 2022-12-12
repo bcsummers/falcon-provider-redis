@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
 """Redis client utility."""
-# standard library
-from typing import Optional
 
 # third-party
 import redis
@@ -15,7 +12,7 @@ class Singleton(type):
     def __call__(cls, *args, **kwargs):
         """Evoke call method."""
         if cls not in cls._instances:
-            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+            cls._instances[cls] = super().__call__(*args, **kwargs)
         return cls._instances[cls]
 
 
@@ -40,10 +37,10 @@ class RedisClient(metaclass=Singleton):
 
     def __init__(
         self,
-        host: Optional[str] = 'localhost',
-        port: Optional[int] = 6379,
-        db: Optional[int] = 0,
-        blocking_pool: Optional[bool] = False,
+        host: str | None = 'localhost',
+        port: int | None = 6379,
+        db: int | None = 0,
+        blocking_pool: bool | None = False,
         **kwargs
     ):
         """Initialize class properties"""
@@ -62,7 +59,7 @@ class RedisClient(metaclass=Singleton):
 
 
 def redis_client(
-    host: Optional[str] = 'localhost', port: Optional[int] = 6379, db: Optional[int] = 0, **kwargs
+    host: str | None = 'localhost', port: int | None = 6379, db: int | None = 0, **kwargs
 ) -> object:
     """Return an instance of redis.client.Redis.
 

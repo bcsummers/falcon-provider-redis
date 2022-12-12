@@ -61,7 +61,7 @@ The redis_client hook can be applied at the class level or the method level. If 
                     title='Internal Server Error',
                 )
 
-    app_middleware = falcon.API()
+    app_middleware = falcon.App()
     app_middleware.add_route('/hook', RedisHookResource()
 
 ----------
@@ -88,7 +88,7 @@ When using RedisMiddleWare all responder methods will have access to ``self.redi
             """Support GET method."""
             key = req.get_param('key')
             try:
-                resp.body = self.redis_client.get(key)
+                resp.text = self.redis_client.get(key)
                 resp.status_code = falcon.HTTP_OK
             except redis.exceptions.RedisError:
                 raise falcon.HTTPInternalServerError(
@@ -97,7 +97,7 @@ When using RedisMiddleWare all responder methods will have access to ``self.redi
                     title='Internal Server Error',
                 )
 
-    app_middleware = falcon.API(middleware=[RedisMiddleware(host=REDIS_HOST, port=REDIS_PORT)])
+    app_middleware = falcon.App(middleware=[RedisMiddleware(host=REDIS_HOST, port=REDIS_PORT)])
 
     app_middleware.add_route('/middleware', RedisMiddleWareResource()
 
@@ -112,7 +112,7 @@ After cloning the repository, all development requirements can be installed via 
 
 .. code:: bash
 
-    > pip install falcon-provider-redis[dev]
+    > poetry install --with dev
     > pre-commit install
 
 Testing
@@ -120,12 +120,13 @@ Testing
 
 .. code:: bash
 
+    > poetry install --with dev,test
     > pytest --cov=falcon_provider_redis --cov-report=term-missing tests/
 
 .. |build| image:: https://github.com/bcsummers/falcon-provider-redis/workflows/build/badge.svg
     :target: https://github.com/bcsummers/falcon-provider-redis/actions
 
-.. |coverage| image:: https://codecov.io/gh/bcsummers/falcon-provider-redis/branch/master/graph/badge.svg
+.. |coverage| image:: https://codecov.io/gh/bcsummers/falcon-provider-redis/branch/master/graph/badge.svg?token=prpmecioDm
     :target: https://codecov.io/gh/bcsummers/falcon-provider-redis
 
 .. |code-style| image:: https://img.shields.io/badge/code%20style-black-000000.svg
