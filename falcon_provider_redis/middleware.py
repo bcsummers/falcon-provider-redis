@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
 """Falcon REDIS middleware module."""
-# standard library
-from typing import Optional
 
 # third-party
 import falcon
@@ -30,11 +27,7 @@ class RedisMiddleware:
     """
 
     def __init__(
-        self,
-        host: Optional[str] = 'localhost',
-        port: Optional[int] = 6379,
-        db: Optional[int] = 0,
-        **kwargs
+        self, host: str | None = 'localhost', port: int | None = 6379, db: int | None = 0, **kwargs
     ):
         """Initialize class properties."""
         redis_client: redis.client.Redis = kwargs.get('redis_client')

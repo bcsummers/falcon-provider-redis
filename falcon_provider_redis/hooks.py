@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
 """Falcon REDIS hook module."""
-# standard library
-from typing import Optional
 
 # third-party
 import falcon
@@ -14,9 +11,9 @@ def redis_client(
     resp: falcon.Response,
     resource: object,
     params: dict,
-    host: Optional[str] = None,
-    port: Optional[int] = None,
-    db: Optional[int] = None,
+    host: str | None = None,
+    port: int | None = None,
+    db: int | None = None,
     **kwargs
 ):  # pylint: disable=unused-argument
     """Provide an instance of REDIS client to method via resource.

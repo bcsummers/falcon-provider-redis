@@ -1,0 +1,14 @@
+# Custom Dictionary Words
+autofix
+codecov
+CODECOV
+codespell
+getenv
+hiredis
+isort
+junitxml
+pipx
+pydocstyle
+pylint
+pytest
+pyupgrade
