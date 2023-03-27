@@ -56,7 +56,7 @@ version = "0.0.1"
 falcon = "^3.1.1"
 hiredis = "^2.0.0"
 python = "^3.10"
-redis = "^4.4.0"
+redis = "^4.5.3"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/bcsummers/falcon-provider-redis/issues"
